@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!--react-->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <!--dom : 배포를 위해-->
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+  <!--babel-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/8.0.4/babel.min.js"></script>
+
+  <!--user-->
+  <script type="text/babel" defer>
+    /*
+    const rootElement = document.getElementById('root');
+    const h1 = document.createElement('h1');
+    h1.setAttribute('class', 'title');
+    h1.textContent = 'Hello, react!';
+
+    rootElement.appendChild(h1);
+
+    ReactDOM.render(element, rootElement);
+    */
+    /*reneder은 한번만 사용*/
+
+    // const rootElement = document.getElementById('root');
+    //React.createElement(component(태그를 가지고 만들어내는것), props(속성),...children(자식들));
+    //1) React.createElement('component', {children});
+    // const element = React.createElement('h1',{children: 'Hello!'});
+  
+    //2)React.createElement('component', props, 'children');
+    // const element = React.createElement('h2',null,'React!');
+
+    //3) React.createElement('component', props, ['children']);
+    // const element = React.createElement('h3', null, ['Hello', 'React!']);
+    
+    /*
+    const element = React.createElement(
+      'h1',
+      {
+        // children : 'Hello,React!!!'
+        children : ['Hello,React', 'Bye,JavaScript']
+      }
+    );
+    */
+
+    /*
+    const element01 = React.createElement('div',null,'Hello,React!');
+    const element02 = React.createElement('p',null,'Bye,JavaScript');
+
+    ReactDOM.render(element01, rootElement);
+    ReactDOM.render(element02, rootElement);
+    */
+    /*rendering 시 최종 Dom 하나만 추가 (=> Fragment)*/
+
+    //JSX (JavaScript XML) : 자바스크립트 확장 문법 / BABEL compiler(Transpiler)
+
+    const rootElement = document.getElementById('root');
+
+    // const element = <h1 className = 'title'>Hello,react!</h1>
+    const text = 'Hello,react ~~~~';
+    const userClassName = 'title';
+
+    // const element = <h1 className = {userClassName}>{text}</h1>
+
+    // const element = <h1 className = {userClassName} children = {text}></h1>
+    //element 요소로 받는게 아닌 속성값으로 받기때문에 children으로 받아야함, 가장 많이 사용
+    
+    // const element = <h1 className = {userClassName} children = {text}/>
+    //최종적인 모양
+
+    const props = {
+      className : userClassName,
+      children : text
+    }
+    // const element = <h1 className = {props.className} children = {props.children}/>
+
+    const element = <h1 {...props}/>
+    //props 모든 데이터를 뿌린다
+
+    ReactDOM.render(element,rootElement);
+  </script>
+  <style>
+    /* .title {color: red;} */
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <!--class를 사용해도 되지만 현장은 그렇지 않다-->
+</body>
+
+</html>
