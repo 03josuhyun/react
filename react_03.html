@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!--react-->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <!--dom : 배포를 위해-->
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+  <!--babel-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/8.0.4/babel.min.js"></script>
+
+  <!--user-->
+  <script type="text/babel" defer>
+    //function_component
+
+    const rootElement = document.getElementById('root');
+
+    /*
+    const FrontEnd = function () {
+      return (
+        <>
+          <h3>React</h3>
+          <div>function</div>
+        </>
+      );
+    }
+    //const element = FrontEnd();
+    //component 명은 대문자로
+
+    const element = (
+      <>
+        {FrontEnd()}
+        {FrontEnd()}
+        {FrontEnd()}
+      </>
+    )
+    */
+
+    /*
+    const FrontEnd = function (subject, syntax) {
+      return (
+        <>
+          <h3>{subject}</h3>
+          <div>{syntax}</div>
+        </>
+      );
+    }
+      //함수 정의형 , 함수 호출되어오는 것이기에 return을 꼭 사용해야함, return뒤엔 꼭 한문장이여야기에 한문장 형태로 만들었음
+    */
+
+    /*
+    const FrontEnd = (subject, syntax)=> {
+      return (
+        <>
+          <h3>{subject}</h3>
+          <div>{syntax}</div>
+        </>
+      );
+    }
+      //es6문법을 이용해서 function과 화살표 함수로 처리
+    */
+    //변수로 받을 땐 익명함수처리를 해서 es6는 화살표 함수를 
+
+    /*
+    const FrontEnd = (subject, syntax) => (
+      <>
+        <h3>{subject}</h3>
+        <div>{syntax}</div>
+      </>
+    )
+    //return되어야하는 문장이 한문장이라면 중괄호, return을 날리면 실무에선 이렇게 사용함
+
+    //const element = FrontEnd('React', 'component');
+
+    const element = (
+      <>
+        {FrontEnd('HTML5','tag')}
+        {FrontEnd('CSS3','style')}
+        {FrontEnd('React','JSX')}
+      </>
+    );
+    */
+    //여러 데이터를 호출할땐
+
+    //const FrontEnd = (props) => ();
+    const FrontEnd = ({subject,syntax}) => (
+      <>
+        <h3 className = 'title'>{subject}</h3>
+        <div>{syntax}</div>
+      </>
+    );
+    const element = (
+      <>
+        <FrontEnd className ='title' subject='HTML5' syntax='tag' />
+        <FrontEnd  subject='CSS3' syntax='style' />
+        <FrontEnd  subject='React' syntax='JSX' />
+      </>
+    )
+    //반복되는 함수를 component를 함수지만 태그 형질도 가지고 있음, 변수로 받는게 아닌 component로 데이터를 전달
+
+    ReactDOM.render(element, rootElement);
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>

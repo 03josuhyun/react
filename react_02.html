@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!--react-->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <!--dom : 배포를 위해-->
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+  <!--babel-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/8.0.4/babel.min.js"></script>
+
+  <!--user-->
+  <script type="text/babel" defer>
+    const rootElement = document.getElementById('root');
+    //const element = <h1 className = 'title'>Hi~<h1/>
+
+    //const element  = <h1 className = 'title' children = 'Hello~'/>  
+
+    /*
+    const userClassName = 'title';
+    const text = 'Hello, React';
+    const props = {
+      className : userClassName,
+      children : text,
+    }
+    const element = <h1 className = {props.className} children={props.children}/>
+    */
+
+    //const element = <h1 className = 'title' children = {React.createElement('span', null, 'Hello, JavaScript')} />
+
+    /*
+    const element = (
+      <div
+        className='title'
+        children={[
+          //React.createElement('span', null, 'Hello,JavaScript'),
+          //React.createElement('br'),
+          //React.createElement('span', null, 'Bye,JavaScript')
+
+          <span className = 'txt'>Hello,React! </span>,
+          <br/>,
+          <span children = 'Bye, JavaScript'/>
+        ]}  
+      />
+    );
+    */
+    //배열처리하기위해 [] 사용
+    //객체로 표현한게 아니기때문에, 속성 구조로 넣기 때문에 , 사용안함
+
+    /*
+    const element = (
+      <React.Fragment
+        children={[
+          <span clasName='txt'>Hello, React!</span>,
+          <br />,
+          <span children='Bye, JavaScript!' />
+        ]}
+      />
+    );
+    */
+    //배열이기때문에 ,사용 자식이기때문에
+
+    /*
+    const element = (
+      <React.Fragment>
+        <span clasName = 'txt'>Hello, React!</span>
+        <br/>
+        <span children='Bye, JavaScript!'/>
+      </React.Fragment>
+    );
+    */
+    //그룹화 시킬 필요없을 경우 Fragment를 사용, 자식으로가 아니라 DOM으로 나열함
+
+    const element = (
+      <>
+        <span className='txt'>Hello, React!</span>
+        <br/>
+        <span children='Bye, JavaScript!' />
+      </>
+    );
+    //최종 진화 모습, React.Fragment를 안씀
+
+
+    ReactDOM.render(element, rootElement);
+  </script>
+  <style>
+    .txt {
+      color: red;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>
