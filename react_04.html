@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!--react-->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <!--dom : 배포를 위해-->
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+  <!--babel-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/8.0.4/babel.min.js"></script>
+
+  <!--user-->
+  <script type="text/babel" defer>
+    const rootElement = document.getElementById('root');
+    
+    /*
+    const Greet = ({ first, second, children }) => (
+      <>
+        <h1>{first}</h1>
+        <h2>{second}</h2>
+        {children}
+      </>
+    );
+    //컨포넌트는 무조건 첫 시작을 대문자로 해야함
+    
+    const element = (
+      <>
+        <Greet first='good' second='Morning'> Hi~~ </Greet>
+        <Greet first='Bad' second='Afternoon~'>
+          <span>Hello</span>
+        </Greet>
+        <Greet first='Happy' second='Evening'>
+          <div>night</div>
+          <div>night</div>
+          <div>night</div>
+        </Greet>
+        <Greet fist='Deep' second='Sleeping'>
+          <Greet first = 'Dream' second = 'World~' />
+        </Greet>
+      </>
+    );
+    */
+    //텍스트, 태그, 자기 자신을 자식을 불러 들릴 수 있음
+
+    /*
+    const Good = () => <h3 className='good'>good</h3>
+    const element = (
+      <>
+        <Greet fist='Good' second='Morning'>
+          <Good />
+          <Good />
+          <Good />
+        </Greet>
+      </>
+    );
+    */
+    //서로 다른 컨퍼넌트를 자식으로 받을 수 있음
+
+    ReactDOM.render(element, rootElement);
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>

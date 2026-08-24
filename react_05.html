@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!--react-->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <!--dom : 배포를 위해-->
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+  <!--babel-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/8.0.4/babel.min.js"></script>
+
+  <!--user-->
+  <script type="text/babel" defer>
+    const rootElement = document.getElementById('root');
+
+    /*
+    const Mycomponent = (props) => {
+      return (
+        <div>
+          지금 배우는 과목은 {props.subject}입니다.
+        </div>
+      );
+    }
+
+    //const element = (
+    //  <Mycomponent subject = 'React' />
+    //);
+
+    Mycomponent.defaultProps = {
+      subject : 'React',
+    }
+
+    ReactDOM.render(<Mycomponent />, rootElement);
+    ReactDOM.render(<Mycomponent subject = 'Vue'/>, rootElement);
+    //element값을 변수 받아서 할 수도있고 바로 컨포넌트를 호출할 수 있음(defaultProps의 기본 값을 넣어 나옴)
+    //ReactDOM.render(element, rootElement);
+    */
+    //const Mycomponent = ({myClass, subject}) => {};
+    //원래는 이렇게 받아야함
+    const Mycomponent = (props) => {
+
+      const {myClass, subject} = props;
+      //const myClass = props.myClass;
+      //const subject = props.subject;
+      //코드가 복잡해질 경우를 대비해서 
+
+      return (
+        <div className= 'info'>
+          지금 배우는 과정은 {myClass}이고, <br />
+          과목은 {subject}입니다.
+        </div>
+      );
+    }//Mycomponent
+
+    Mycomponent.defaultProps = {
+      myClass : 'Front_End',
+      subject : 'JavaScript',
+    }
+
+    //ReactDOM.render(<Mycomponent />, rootElement);
+    ReactDOM.render(<Mycomponent myClass = 'Design' subject = 'Photoshop'/>, rootElement);
+  </script>
+  <style>
+    .info {
+      font-size: 20px;
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>

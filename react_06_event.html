@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!--react-->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <!--dom : 배포를 위해-->
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+  <!--babel-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/8.0.4/babel.min.js"></script>
+
+  <!--user-->
+  <script type="text/babel" defer>
+    const rootElement = document.getElementById('root');
+
+    /*
+    const handleMouseOver = () => alert('Hi');
+    const handleMouseOut = () => alert('Bye~');
+    //handle이 앞에 보이면 event임
+
+    const element = (
+      <button onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>Button</button>
+    );
+    */
+   const element = (
+    <button onMouseOver = {()=> alert('hi!!')} onMouseOut = {()=> alert('Bye~~')}>button</button>
+   );
+   //이벤트 바로 만들기
+    //컨포넌트가 위에 정의하고 실행을 해야함
+    ReactDOM.render(element, rootElement);
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>
