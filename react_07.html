@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!--react-->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <!--dom : 배포를 위해-->
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+  <!--babel-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/8.0.4/babel.min.js"></script>
+
+  <!--user-->
+  <script type="text/babel" defer>
+    const rootElement = document.getElementById('root');
+
+    const Season = () => {
+
+      const names = ['spring', 'summer', 'fall', 'winter'];
+      const nameList = names.map((name, index) => {
+        return (<li key={index}> {name} </li>);
+      });
+
+      return <ul>{nameList}</ul>
+    }
+    //map
+    
+
+    ReactDOM.render(<Season />, rootElement);
+  </script>
+  <script>
+    /*
+    const numbers = [1,2,3,4,5];
+     
+    const result = numbers.map((number, index) => {
+      return number*2;
+    })
+
+    console.log(result);
+    */
+    //map함수는 처리 결과를 새로운 변수로 만들어낼 수 있음 (단순히 조회가 아닌 새로운 값을 생성)
+    //forEach 돌릴 때마다 결과가 나오는것
+    /*
+    const result = numbers.filter((number) => {
+      return number > 3
+    });
+    console.log(result);
+    //filter으로 빨간색 만 하고 싶다하면  조건에 red라고 하면 됨
+    */
+    /*
+    const result = numbers.filter((number) => number > 3);
+    console.log(result);
+    */
+   //위에 있는 것과 동일, return과 {} 사라지기 때문에 일반함수처럼 사용 안됨
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>

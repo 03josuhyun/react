@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!--react-->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <!--dom : 배포를 위해-->
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+  <!--babel-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/8.0.4/babel.min.js"></script>
+
+  <!--user-->
+  <script type="text/babel" defer>
+
+    //hook : 상태변경을 할 수 있음(가장 많이 사용하는건 useState)
+    const rootElement = document.getElementById('root');
+
+    /*
+    const Counter = () => {
+      const [count, setCount] = React.useState(0);
+      //[현재 상태 변수, 상태 변경 setter 함수] = useState(초기값(생략가능))
+
+      const handleClick = () => setCount(count + 1);
+
+      return (
+        <>
+          <h1> {count}</h1>
+          <button onClick = {handleClick}>Click </button>
+        </>
+      );
+    }//Counter_component
+    */
+
+    /*
+    const Counter = () => {
+      const [count, setCount] = React.useState(0);
+
+      return (
+        <div>
+          <h1>{count}</h1>
+          <button onClick = {()=>{setCount(count + 1)}}>증가</button>
+          <button onClick = {()=>{setCount(count - 1)}}>감소</button>
+        </div>
+      );
+      //onClick은 자바스크립이기때문에 
+      //if문을 사용을 못하기 때문에 삼합연산자를 사용함
+    };
+    */
+
+    const Info = () => {
+      const [message, setMessage] = React.useState('홍길동의 누리집');
+
+      const handleEnter = () => setMessage('방문을 환영합니다');
+      const handleLeave = () => setMessage('다음에 다시 방문해주세요');
+
+      const [color, setColor] = React.useState('black');
+
+      return (
+        <div>
+          <button onClick={handleEnter}>입장</button>
+          <button onClick={handleLeave}>퇴장</button>
+          <h1 style={{ color : color }}>{message}</h1>
+
+          <button className = 'btn' style={{backgroundColor : 'red'}} onClick ={()=>setColor('red')}>빨강</button>
+          <button className = 'btn' style={{backgroundColor : 'blue'}} onClick={()=>setColor('blue')}>파랑</button>
+        </div>
+      );
+    }//Info_component
+    //첫번째 {} : 자바스크립트 표현식, 두번째 {} : 객체 스타일
+    //스타일 적용한건 인라인 방식임 = style={{backgroundColor : 'red'}}
+
+    ReactDOM.render(<Info />, rootElement);
+
+  </script>
+  <style>
+    .btn {
+      width: 100px; height: 30px;
+      color: white;
+      border: none;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>

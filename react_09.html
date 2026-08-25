@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!--react-->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <!--dom : 배포를 위해-->
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+  <!--babel-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/8.0.4/babel.min.js"></script>
+
+  <!--user-->
+  <script type="text/babel" defer>
+    const rootElement = document.getElementById('root');
+
+    const Info = () => {
+      const [name, setName] = React.useState('');
+      const [age, setAge] = React.useState('');
+
+      const handleChangeName = (e) => setName(e.target.value);
+      //현재 활성화 되어있는 값을 바꾸겠다
+
+      const handleChangeAge = (e) => setAge(e.target.value);
+
+      return (
+        <>
+          <div>
+            Name : <input type='text' value={name} onChange={handleChangeName} /> <br />
+            Age : <input type='text' value={age} onChange={handleChangeAge} />
+          </div >
+
+          <h1> 이름 :{name} </h1>
+          <h1> 나이 : {age} </h1>
+        </>
+      );
+    }//Info_component
+
+    ReactDOM.render(<Info />, rootElement);
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>
