@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!--react-->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <!--dom : 배포를 위해-->
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+  <!--babel-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/8.0.4/babel.min.js"></script>
+
+  <!--user-->
+  <script type="text/babel" defer>
+    const rootElement = document.getElementById('root');
+
+    const Season = () => {
+      const [names, setNames] = React.useState([
+        {id: 1, season: 'spring'},
+        {id: 2, season: 'summer'},
+      ]);
+      //const [names, setNames] = React.useState([]); 배열안에 데이터가 없을 경우, 상태변경 : 객체 데이터가 2개인데 3~ 이상으로 늘어나는 것, names의 id,input의 데이터가 따로 변경이 되기 때문에 setNextId, setInput 을 hook으로 지정을 해줌
+
+      const [nextId, setNextId] = React.useState(2);
+      //3이후로 만들 것기때문
+      const [input, setInput] = React.useState('');
+
+      const handleChange = (e) => setInput(e.target.value);
+      const handleClick = () => {
+        const nextNames = names.concat({
+          id : nextId,
+          season : input,
+        });
+        //nextNames 안에는 3개의 객체 데이터가 들어가있음
+        //nextNames는 names의 객체 데이터 폼을 만들어줌
+        //객체 데이터를 하나 만듦
+        //concat은 배열과 배열을 합치기 (데이터를 합치는게 아닌 배열을) , 만약에 뒤에 추가가 아닌 앞에 추가할 경우 정렬을 사용해야함
+
+        setNextId(nextId+1);
+        //2+1로 만들어줌
+
+        setNames(nextNames);
+        setInput('');
+        //데이터 형성
+      }
+
+      const nameList = names.map((name) => <li key={name.id}>{name.season}</li>);
+      //key는 유일 키이기에 중복되지 않고 화면에 보이는게 아님 따라서 생략 가능
+      
+      return(
+        <>
+          <input type='text' value={input} onChange={handleChange} />
+          <button onClick={handleClick}>추가</button>
+          <ul>{nameList}</ul>
+        </>
+      );
+    }//Season_component
+
+    ReactDOM.render(<Season />,rootElement);
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>
